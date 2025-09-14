@@ -1,24 +1,33 @@
-﻿using System.Text;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿using System;
 
 namespace NWD_Konsola
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
-    public partial class MainWindow : Window
+    internal class Program
     {
-        public MainWindow()
+        static void Main(string[] args)
         {
-            InitializeComponent();
+            Console.Write("Podaj a: ");
+            int a = int.Parse(Console.ReadLine());
+
+            Console.Write("Podaj b: ");
+            int b = int.Parse(Console.ReadLine());
+
+            if (a < 1 || b < 1)
+                Console.WriteLine("Liczby powinny być dodatnie!");
+            else
+                Console.WriteLine($"licz({a}, {b}) = {licz(a, b)}");
+        }
+
+        private static int licz(int a, int b)
+        {
+            while (a != b)
+            {
+                if (a > b)
+                    a -= b;
+                else
+                    b -= a;
+            }
+            return a;
         }
     }
 }
