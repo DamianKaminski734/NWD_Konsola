@@ -6,16 +6,27 @@ namespace NWD_Konsola
     {
         static void Main(string[] args)
         {
+            int a, b;
+
             Console.Write("Podaj a: ");
-            int a = int.Parse(Console.ReadLine());
+            bool isSucces = int.TryParse(Console.ReadLine(), out a);
+
+            if (!isSucces || a < 1)
+            {
+                Console.WriteLine("Liczba a jest niepoprawna");
+                return;
+            }
 
             Console.Write("Podaj b: ");
-            int b = int.Parse(Console.ReadLine());
+            isSucces = int.TryParse(Console.ReadLine(), out b);
 
-            if (a < 1 || b < 1)
-                Console.WriteLine("Liczby powinny być dodatnie!");
-            else
-                Console.WriteLine($"licz({a}, {b}) = {licz(a, b)}");
+            if (!isSucces || b < 1)
+            {
+                Console.WriteLine("Liczba b jest niepoprawna");
+                return;
+            }
+
+            Console.WriteLine($"licz({a}, {b}) = {licz(a, b)}");
         }
 
         private static int licz(int a, int b)
