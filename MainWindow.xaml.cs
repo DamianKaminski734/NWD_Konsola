@@ -28,7 +28,10 @@ namespace NWD_Konsola
 
             Console.WriteLine($"licz({a}, {b}) = {licz(a, b)}");
         }
-
+        /*
+nazwa funkcji - licz; opis funkcji - Oblicza funkcje licz uzywajac funkcji Euklidesa; parametry: a - pierwsza liczba, b - druga liczba;zwracany typ i opis: int, liczenie licz
+autor: Damian Kamiński
+*/
         private static int licz(int a, int b)
         {
             while (a != b)
